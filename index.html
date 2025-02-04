@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>API Phone Hunter</title>
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.23/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="max-w-6xl mx-auto px-4 py-6">
+    <header>
+      <h1 class="text-3xl font-bold mb-4">Choose Your desired phone</h1>
+    </header>
+
+    <main>
+      <section>
+        <!-- search section -->
+        <div class="flex gap-5 items-center bg-[#C4D9FF] p-4 rounded-lg">
+          <input
+            id="search-text"
+            type="text"
+            placeholder="Search..."
+            class="input input-bordered w-full max-w-xs bg-white"
+          />
+          <button onclick="searchHandler()" class="btn btn-warning">
+            Search
+          </button>
+        </div>
+        <!-- loadspinner -->
+        <div id="load-spinner" class="my-4 text-center hidden">
+          <span class="loading loading-spinner loading-lg"></span>
+        </div>
+        <!-- show card -->
+        <div
+          id="phone-container"
+          class="my-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
+        ></div>
+
+        <!-- show all btn -->
+        <div class="text-center hidden" id="show-btn">
+          <button
+            onclick="showAllHandler()"
+            class="btn bg-[#0D6EFD] text-white"
+          >
+            Show All
+          </button>
+        </div>
+      </section>
+
+      <section>
+        <div>
+          <!-- Open the modal using ID.showModal() method -->
+          <dialog id="details_modal" class="modal">
+            <div class="modal-box">
+              <div id="phone-info" class="space-y-3">
+
+              </div>
+              <div class="modal-action">
+                <form method="dialog">
+                  <!-- if there is a button in form, it will close the modal -->
+                  <button class="btn bg-[#DC3545] text-white">Close</button>
+                </form>
+              </div>
+            </div>
+          </dialog>
+        </div>
+      </section>
+    </main>
+
+    <footer></footer>
+    <script src="js/api.js"></script>
+  </body>
+</html>
